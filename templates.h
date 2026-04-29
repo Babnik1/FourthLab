@@ -30,11 +30,11 @@ auto print_ip( const T& container ) -> std::enable_if_t<
     bool first = true;
     for( const auto& c : container )
     {
-        printf( "%d", c );
         if ( !first )
         {
             printf( "." );
         }
+        printf( "%d", c );
         first = false;
     }
     printf( "\n" );
@@ -55,11 +55,11 @@ auto print_ip( const T& str ) -> std::void_t< decltype( std::declval< T >().c_st
 template< typename T >
 auto print_ip( const T& tpl ) -> std::enable_if_t< is_tuple_v< T >, void >
 {
-    // printf( "%d.%d.%d.%d\n", std::get< 0 >( tpl ), 
-    //                          std::get< 1 >( tpl ),
-    //                          std::get< 2 >( tpl ),
-    //                          std::get< 3 >( tpl )
-    // );
+    printf( "%d.%d.%d.%d\n", std::get< 0 >( tpl ), 
+                             std::get< 1 >( tpl ),
+                             std::get< 2 >( tpl ),
+                             std::get< 3 >( tpl )
+    );
 };
 
 /// @brief Шаблонная функция для беззнаковых чисел различного размера.
